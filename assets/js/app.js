@@ -21,8 +21,8 @@ const templating = (arr => {
                     </p>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
-                    <button class="btn btn-primary">update</button>
-                    <button class="btn btn-primary">update</button>
+                    <button class="btn btn-primary">Update</button>
+                    <button class="btn btn-danger">Delete</button>
                 </div>
             </div>
         
