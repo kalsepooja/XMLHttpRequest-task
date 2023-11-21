@@ -13,7 +13,7 @@ const templating = (arr => {
         result += `
             <div class="card mb-4">
                 <div class="card-header">
-                    <h2>${post.title}</h2>
+                    <h3>${post.title}</h3>
                 </div>
                 <div class="card-body">
                     <p>
