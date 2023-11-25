@@ -71,7 +71,14 @@ const onUpdateHandler = (eve => {
             postArray[getUpdatedObj].title = updatedObj.title;
             postArray[getUpdatedObj].body = updatedObj.body;
             postArray[getUpdatedObj].userId = updatedObj.userId;
-            templating(postArray)
+            templating(postArray);
+
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Successfully Updated",
+                timer: 1500
+              });
         }
     }
 });
@@ -92,6 +99,24 @@ const onDeletHandler = (eve => {
         if(xhr.status === 200){
             let getDelete = document.getElementById(getDeletId);
             getDelete.remove();
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                  });
+                }
+              });
         }
     }
 });
@@ -148,7 +173,14 @@ const onPostHandler = (postObj) => {
             cl(xhr.response)
             postObj.id = JSON.parse(xhr.response).id;
             postArray.push(postObj)
-            templating(postArray)
+            templating(postArray);
+
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Your post has been saved",
+                timer: 1500
+              });
         }
     }
 };
